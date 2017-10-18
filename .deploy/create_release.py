@@ -78,8 +78,10 @@ def main():
     }
 
     data=json.dumps(raw_data)
-    conn.request('POST', '/repos/{repo_slug}/releases'.format(
-        repo_slug=os.environ['TRAVIS_REPO_SLUG']), body=data, headers=headers)
+    url = '/repos/{repo_slug}/releases'.format(
+         repo_slug=os.environ['TRAVIS_REPO_SLUG'])
+    conn.request('POST',url , body=data, headers=headers)
+    print(url)
     response=conn.getresponse()
     release=json.loads(response.read().decode())
     print(release)
