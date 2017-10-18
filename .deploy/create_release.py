@@ -19,7 +19,7 @@ def create_dumps():
         '--file', dumpfile,
         '--schema', 'qwat_dr',
         '--schema', 'qwat_od',
-        'qwat']
+        'qwat_prod']
     )
     files.append(dumpfile)
 
@@ -32,7 +32,7 @@ def create_dumps():
         '--file', dumpfile,
         '--schema', 'qwat_dr',
         '--schema', 'qwat_od',
-        'qwat']
+        'qwat_prod']
     )
     files.append(dumpfile)
 
@@ -45,7 +45,7 @@ def create_dumps():
         '--verbose',
         '--file', dumpfile,
         '-N', 'public',
-        'qwat']
+        'qwat_prod']
     )
     files.append(dumpfile)
 
