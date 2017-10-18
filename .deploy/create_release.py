@@ -37,6 +37,7 @@ def create_dumps():
     dump = 'qwat_v{version}_data_only_sample.backup'.format(
         version=os.environ['TRAVIS_TAG'])
     print('travis_fold:start:{}\n'.format(dump))
+    print('Creating dump {}\n'.format(dump))
     dumpfile = '/tmp/{dump}'.format(dump=dump)
     subprocess.call(['pg_dump',
                      '--format', 'custom',
@@ -55,6 +56,7 @@ def create_dumps():
     dump='qwat_v{version}_data_only_sample.sql'.format(
         version=os.environ['TRAVIS_TAG'])
     print('travis_fold:start:{}\n'.format(dump))
+    print('Creating dump {}\n'.format(dump))
     dumpfile='/tmp/{dump}'.format(dump=dump)
 
     subprocess.call(['pg_dump',
@@ -73,6 +75,7 @@ def create_dumps():
     dump='qwat_v{version}_data_and_structure_sample.backup'.format(
         version=os.environ['TRAVIS_TAG'])
     print('travis_fold:start:{}\n'.format(dump))
+    print('Creating dump {}\n'.format(dump))
     dumpfile='/tmp/{dump}'.format(dump=dump)
 
     subprocess.call(['pg_dump',
@@ -91,6 +94,7 @@ def create_dumps():
     dump='qwat_v{version}_data_and_structure_sample.sql'.format(
         version=os.environ['TRAVIS_TAG'])
     print('travis_fold:start:{}\n'.format(dump))
+    print('Creating dump {}\n'.format(dump))
     dumpfile='/tmp/{dump}'.format(dump=dump)
 
     subprocess.call(['pg_dump',
@@ -103,7 +107,7 @@ def create_dumps():
                      'qwat_prod']
                     )
     files.append(dumpfile)
-    print('travis_fold:end:{}\n'.format(dump)
+    print('travis_fold:end:{}\n'.format(dump))
 
     return files
 
