@@ -51,7 +51,7 @@ script:
 
   # Run a last check between qwat_prod and qwat_comp
 #  - python pum/pum.py check -p1 qwat_prod -p2 qwat_comp -i columns constraints views sequences indexes triggers functions rules
-  - ./.deploy/create_release.py
+  - TRAVIS_TAG=0.0.1 ./.deploy/create_release.py
 
 env:
   global:
