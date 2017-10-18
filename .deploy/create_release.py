@@ -57,7 +57,7 @@ def create_dumps():
         '--verbose',
         '--file', dumpfile,
         '-N', 'public',
-        'qwat']
+        'qwat_prod']
     )
     files.append(dumpfile)
 
