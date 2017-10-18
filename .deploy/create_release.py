@@ -130,23 +130,20 @@ def main():
     url='/repos/{repo_slug}/releases'.format(
         repo_slug=os.environ['TRAVIS_REPO_SLUG'])
     conn.request('POST', url, body=data, headers=headers)
-    print(url)
     response=conn.getresponse()
     release=json.loads(response.read().decode())
-    print(release)
 
     conn=http.client.HTTPSConnection('uploads.github.com')
     for release_file in release_files:
         _, filename=os.path.split(release_file)
         headers['Content-Type']='text/plain'
-        url='{}?name={}'.format(release_url=release['upload_url'][
-            :-13], filename=filename)
+        url='{release_url}?name={filename}'.format(release_url=release['upload_url'][:-13], filename=filename)
         print('Upload to {}'.format(url))
 
         with open(release_file, 'rb') as f:
             conn.request('POST', url, f, headers)
 
-        print(conn.getresponse().read())
+        conn.getresponse().read()
 
 
 if __name__ == "__main__":
